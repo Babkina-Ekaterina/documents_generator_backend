@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="essay" pageWidth="595" pageHeight="842" columnWidth="476" leftMargin="70" rightMargin="49" topMargin="70" bottomMargin="56" uuid="a3ce9c57-7814-47f9-b031-123d4058d0b8">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<parameter name="programName" class="java.lang.String"/>
+	<parameter name="annotation" class="java.lang.String"/>
+	<parameter name="implement" class="java.lang.String"/>
+	<parameter name="language" class="java.lang.String"/>
+	<parameter name="programSize" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="30">
+			<staticText>
+				<reportElement x="0" y="0" width="476" height="30" uuid="d1bf0ee5-17d8-4139-91b9-efab2a92b3cd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[РЕФЕРАТ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="649" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="0" width="476" height="649" uuid="bcbb2a0b-4bd5-4c17-90b5-5d7b339e5e6b"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="13"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Программа: «"+$P{programName} + "»\n" + "Аннотация: "+$P{annotation}+"\n" + "В разработанной программе реализовано: \n" +$P{implement} + "\n\n" + "Язык: \t\t\t\t" + $P{language} +"\n" + "Объем программы: \t\t" + $P{programSize}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

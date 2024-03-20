@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.1</version>
+        <version>3.0.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>cs.vsu.ru</groupId>
@@ -16,38 +16,27 @@
     <properties>
         <java.version>17</java.version>
     </properties>
+    <repositories>
+        <repository>
+            <id>com.e-iceblue</id>
+            <name>e-iceblue</name>
+            <url>https://repo.e-iceblue.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-mustache</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity6</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -68,6 +57,16 @@
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports</artifactId>
             <version>6.21.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>e-iceblue</groupId>
+            <artifactId>spire.doc</artifactId>
+            <version>12.2.2</version>
         </dependency>
     </dependencies>
 
