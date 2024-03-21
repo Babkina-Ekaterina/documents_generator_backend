@@ -6,19 +6,18 @@ import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ResourceUtils;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
 public class ConsentForPersonalDataProcessingService {
-    public byte[] generateConsentForPersonalDataProcessing(ConsentForPersonalDataProcessingEntity consentForPersonalDataProcessingEntity) throws JRException, FileNotFoundException {
-        File file = ResourceUtils.getFile("classpath:сonsentForPersonalDataProcessing.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+    public byte[] generateConsentForPersonalDataProcessing(ConsentForPersonalDataProcessingEntity consentForPersonalDataProcessingEntity)
+            throws JRException {
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("сonsentForPersonalDataProcessing.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("programName", consentForPersonalDataProcessingEntity.getProgramName());
         parameters.put("name", consentForPersonalDataProcessingEntity.getName());

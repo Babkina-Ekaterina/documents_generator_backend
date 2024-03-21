@@ -7,21 +7,20 @@ import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ResourceUtils;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
 public class SupportingRecommendationService {
     public byte[] generateSupportingRecommendation(SupportingRecommendationEntity supportingRecommendationEntity)
-            throws JRException, FileNotFoundException {
-        JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(supportingRecommendationEntity.getAuthors(), false);
-        File file = ResourceUtils.getFile("classpath:supportingRecommendation.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+            throws JRException {
+        JRBeanCollectionDataSource beanCollectionDataSource = new
+                JRBeanCollectionDataSource(supportingRecommendationEntity.getAuthors(), false);
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("supportingRecommendation.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("faculty", supportingRecommendationEntity.getFaculty());
         parameters.put("supportingText", supportingRecommendationEntity.getSupportingText());

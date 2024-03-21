@@ -11,13 +11,9 @@ import org.apache.poi.xwpf.usermodel.*;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTPageMar;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTSectPr;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -26,9 +22,10 @@ import java.util.Map;
 @Service
 public class ListingService {
     public byte[] generateListing(ListingEntity listingEntity) throws JRException, IOException {
-        JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(listingEntity.getAuthors(), false);
-        File file = ResourceUtils.getFile("classpath:listing.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource beanCollectionDataSource = new
+                JRBeanCollectionDataSource(listingEntity.getAuthors(), false);
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("listing.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("type", listingEntity.getType());
         parameters.put("programName", listingEntity.getProgramName());

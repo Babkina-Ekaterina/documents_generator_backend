@@ -6,19 +6,17 @@ import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ResourceUtils;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
 public class EssayService {
-    public byte[] generateEssay(EssayEntity essayEntity) throws JRException, FileNotFoundException {
-        File file = ResourceUtils.getFile("classpath:essay.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+    public byte[] generateEssay(EssayEntity essayEntity) throws JRException {
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("essay.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("programName", essayEntity.getProgramName());
         parameters.put("annotation", essayEntity.getAnnotation());
