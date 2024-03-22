@@ -24,7 +24,7 @@ public class ListingService {
     public byte[] generateListing(ListingEntity listingEntity) throws JRException, IOException {
         JRBeanCollectionDataSource beanCollectionDataSource = new
                 JRBeanCollectionDataSource(listingEntity.getAuthors(), false);
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("listing.jrxml");
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("documents/listing.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("type", listingEntity.getType());

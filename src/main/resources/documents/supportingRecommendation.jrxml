@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SupportingRecommendation" pageWidth="595" pageHeight="842" columnWidth="468" leftMargin="85" rightMargin="42" topMargin="56" bottomMargin="56" uuid="35786a8d-0e75-483c-9b6b-025ed3dc7c3a">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="faculty" class="java.lang.String"/>
+	<parameter name="dean" class="java.lang.String"/>
+	<parameter name="supportingText" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="409" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="240" height="70" uuid="8b5d23b3-2357-4e44-a4f1-d5896dc294e4"/>
+				<textElement markup="styled">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size=\"10\">\n</style>"+$P{faculty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="228" height="70" uuid="f7ee2e7c-88d5-42b0-b2df-0b8305bb55b7"/>
+				<textElement textAlignment="Right" markup="styled">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size=\"10\">\n</style>Ректору ВГУ\nпроф. Д.А. Ендовицкому"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="70" width="468" height="80" uuid="80915ec4-94b3-4a27-9429-99244f1f291f">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size=\"10\">\n</style>Докладная записка №______ от ________\n\n\n\n\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="150" width="468" height="259" uuid="6fa5f7f3-14c4-4309-a7ed-e55d09fa00c5">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="12"/>
+					<paragraph firstLineIndent="0" leftIndent="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{supportingText}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="28">
+			<textField>
+				<reportElement x="0" y="0" width="468" height="28" uuid="3697251b-5c66-4244-bd0f-91db290c47d2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Авторы:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="468" height="30" uuid="a708b26e-6438-4fe5-83fc-bad66162e08c"/>
+				<textField>
+					<reportElement x="-1" y="0" width="231" height="30" uuid="97afa9f4-d50f-4e7f-8814-563a850f4285"/>
+					<textElement>
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="250" y="0" width="208" height="30" uuid="43e3b05c-1e71-498b-bd9d-c5302a4b5fba"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ФИО\nдд. мм.гг"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<summary>
+		<band height="110">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="0" y="0" width="230" height="110" uuid="09f2bd45-9027-4be2-933a-4e600913a0bd"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["\n\n\nИ.о. декана:\n\n_____________________"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="40" width="238" height="70" uuid="921a3bb0-fa3a-4cee-a7e2-e8c7009c2814"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dean}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+	<fontFamily name="Times New Roman">
+		<normal><![CDATA[fonts/TimesNewRoman/times.ttf]]></normal>
+		<bold><![CDATA[fonts/TimesNewRoman/timesbd.ttf]]></bold>
+		<italic><![CDATA[fonts/TimesNewRoman/timesi.ttf]]></italic>
+		<boldItalic><![CDATA[fonts/TimesNewRoman/timesbi.ttf]]></boldItalic>
+		<pdfEncoding><![CDATA[Cp1251]]></pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+
+	<fontFamily name="Arial">
+		<normal><![CDATA[fonts/Arial/arial.ttf]]></normal>
+		<bold><![CDATA[fonts/Arial/arialbd.ttf]]></bold>
+		<italic><![CDATA[fonts/Arial/ariali.ttf]]></italic>
+		<boldItalic><![CDATA[fonts/Arial/arialbi.ttf]]></boldItalic>
+		<pdfEncoding><![CDATA[Cp1251]]></pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+
+	<fontFamily name="Calibri">
+		<normal><![CDATA[fonts/Calibri/calibri.ttf]]></normal>
+		<bold><![CDATA[fonts/Calibri/calibrib.ttf]]></bold>
+		<italic><![CDATA[fonts/Calibri/calibrii.ttf]]></italic>
+		<boldItalic><![CDATA[fonts/Calibri/calibriz.ttf]]></boldItalic>
+		<pdfEncoding><![CDATA[Cp1251]]></pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+
+	<fontFamily name="Courier New">
+		<normal><![CDATA[fonts/CourierNew/cour.ttf]]></normal>
+		<bold><![CDATA[fonts/CourierNew/courbd.ttf]]></bold>
+		<italic><![CDATA[fonts/CourierNew/couri.ttf]]></italic>
+		<boldItalic><![CDATA[fonts/CourierNew/courbi.ttf]]></boldItalic>
+		<pdfEncoding><![CDATA[Cp1251]]></pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+</fontFamilies>

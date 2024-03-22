@@ -16,7 +16,7 @@ import java.util.Map;
 public class ConsentForPersonalDataProcessingService {
     public byte[] generateConsentForPersonalDataProcessing(ConsentForPersonalDataProcessingEntity consentForPersonalDataProcessingEntity)
             throws JRException {
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("сonsentForPersonalDataProcessing.jrxml");
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("documents/сonsentForPersonalDataProcessing.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("programName", consentForPersonalDataProcessingEntity.getProgramName());

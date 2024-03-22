@@ -19,7 +19,7 @@ public class SupportingRecommendationService {
             throws JRException {
         JRBeanCollectionDataSource beanCollectionDataSource = new
                 JRBeanCollectionDataSource(supportingRecommendationEntity.getAuthors(), false);
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("supportingRecommendation.jrxml");
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("documents/supportingRecommendation.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("faculty", supportingRecommendationEntity.getFaculty());

@@ -16,7 +16,7 @@ import java.util.Map;
 public class ConsentForAuthorshipInformationService {
     public byte[] generateConsentForAuthorshipInformation(ConsentForAuthorshipInformationEntity consentForAuthorshipInformationEntity)
             throws JRException {
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("сonsentForAuthorshipInformation.jrxml");
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("documents/сonsentForAuthorshipInformation.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("computerProgramCheckbox", consentForAuthorshipInformationEntity.isComputerProgramCheckbox());

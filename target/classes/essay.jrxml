@@ -18,7 +18,7 @@
 			<staticText>
 				<reportElement x="0" y="0" width="476" height="30" uuid="d1bf0ee5-17d8-4139-91b9-efab2a92b3cd"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="14"/>
+					<font fontName="MyMyTimesNewRoman" size="14"/>
 					<paragraph lineSpacing="1_1_2"/>
 				</textElement>
 				<text><![CDATA[РЕФЕРАТ]]></text>
@@ -30,7 +30,7 @@
 			<textField textAdjust="StretchHeight">
 				<reportElement x="0" y="0" width="476" height="649" uuid="bcbb2a0b-4bd5-4c17-90b5-5d7b339e5e6b"/>
 				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="13"/>
+					<font fontName="MyMyTimesNewRoman" size="13"/>
 					<paragraph lineSpacing="1_1_2"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Программа: «"+$P{programName} + "»\n" + "Аннотация: "+$P{annotation}+"\n" + "В разработанной программе реализовано: \n" +$P{implement} + "\n\n" + "Язык: \t\t\t\t" + $P{language} +"\n" + "Объем программы: \t\t" + $P{programSize}]]></textFieldExpression>

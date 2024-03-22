@@ -15,7 +15,7 @@ import java.util.Map;
 @Service
 public class EssayService {
     public byte[] generateEssay(EssayEntity essayEntity) throws JRException {
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("essay.jrxml");
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("documents/essay.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("programName", essayEntity.getProgramName());
