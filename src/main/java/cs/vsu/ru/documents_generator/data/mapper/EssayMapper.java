@@ -10,6 +10,6 @@ import org.springframework.stereotype.Component;
 public class EssayMapper {
     public EssayEntity dtoToEntity(UserDataDto userDataDto) {
         return new EssayEntity(userDataDto.getProgramName(), userDataDto.getAnnotation(),
-                userDataDto.getImplement(), userDataDto.getLanguage(), userDataDto.getProgramSize());
+                userDataDto.getLanguage(), userDataDto.getProgramSize());
     }
 }

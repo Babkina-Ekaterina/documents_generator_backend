@@ -4,7 +4,6 @@
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<parameter name="programName" class="java.lang.String"/>
 	<parameter name="annotation" class="java.lang.String"/>
-	<parameter name="implement" class="java.lang.String"/>
 	<parameter name="language" class="java.lang.String"/>
 	<parameter name="programSize" class="java.lang.String"/>
 	<queryString>
@@ -33,7 +32,7 @@
 					<font fontName="Times New Roman" size="13"/>
 					<paragraph lineSpacing="1_1_2"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Программа: «"+$P{programName} + "»\n" + "Аннотация: "+$P{annotation}+"\n" + "В разработанной программе реализовано: \n" +$P{implement} + "\n\n" + "Язык: \t\t\t\t" + $P{language} +"\n" + "Объем программы: \t\t" + $P{programSize}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Программа: «"+$P{programName} + "»\n" + "Аннотация: "+$P{annotation} + "\n\n" + "\tЯзык: \t\t\t\t" + $P{language} +"\n" + "\tОбъем программы: \t\t" + $P{programSize}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

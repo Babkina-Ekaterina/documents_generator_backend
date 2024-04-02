@@ -10,7 +10,6 @@ import lombok.Setter;
 public class EssayEntity {
     private String programName;
     private String annotation;
-    private String implement;
     private String language;
     private String programSize;
 }

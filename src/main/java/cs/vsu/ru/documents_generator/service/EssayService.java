@@ -20,7 +20,6 @@ public class EssayService {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("programName", essayEntity.getProgramName());
         parameters.put("annotation", essayEntity.getAnnotation());
-        parameters.put("implement", essayEntity.getImplement());
         parameters.put("language", essayEntity.getLanguage());
         parameters.put("programSize", essayEntity.getProgramSize());
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, new JREmptyDataSource());
