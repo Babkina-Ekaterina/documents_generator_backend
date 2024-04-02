@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @Component
@@ -14,6 +15,7 @@ public class ConsentForAuthorshipInformationMapper {
     public List<ConsentForAuthorshipInformationEntity> dtoToEntity(UserDataDto userDataDto) {
         List<ConsentForAuthorshipInformationEntity> result = new ArrayList<>();
         int documentNumber = userDataDto.getNames().size();
+        int year = Calendar.getInstance().get(Calendar.YEAR);
         for (int documentIndex = 0; documentIndex < documentNumber; documentIndex++) {
             String[] birthInformation = userDataDto.getDatesOfBirth().get(documentIndex).split("\\.");
             result.add(new ConsentForAuthorshipInformationEntity(
@@ -24,7 +26,7 @@ public class ConsentForAuthorshipInformationMapper {
                     userDataDto.getAddresses().get(documentIndex), userDataDto.getDescriptions().get(documentIndex),
                     userDataDto.getNameCheckboxes().get(documentIndex),
                     userDataDto.getAnonymousCheckboxes().get(documentIndex),
-                    userDataDto.getPseudoNameCheckboxes().get(documentIndex)));
+                    userDataDto.getPseudoNameCheckboxes().get(documentIndex), year));
         }
         return result;
     }

@@ -33,6 +33,7 @@ public class ConsentForAuthorshipInformationService {
         parameters.put("nameCheckbox", consentForAuthorshipInformationEntity.isNameCheckbox());
         parameters.put("anonymousCheckbox", consentForAuthorshipInformationEntity.isAnonymousCheckbox());
         parameters.put("pseudoNameCheckbox", consentForAuthorshipInformationEntity.isPseudoNameCheckbox());
+        parameters.put("year", consentForAuthorshipInformationEntity.getYear());
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, new JREmptyDataSource());
 
         JRDocxExporter exporter = new JRDocxExporter();
