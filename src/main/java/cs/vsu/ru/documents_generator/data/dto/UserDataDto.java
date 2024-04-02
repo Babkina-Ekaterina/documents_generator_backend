@@ -14,7 +14,6 @@ import java.util.List;
 public class UserDataDto {
     private String programName;
     private String annotation;
-    private String implement;
     private String language;
     private String programSize;
 

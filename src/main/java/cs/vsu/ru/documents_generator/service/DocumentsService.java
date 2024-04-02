@@ -57,6 +57,7 @@ public class DocumentsService {
             throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try (ZipOutputStream zos = new ZipOutputStream(baos)) {
+            addToZipStreamFromResource(zos, "Памятка_авторам.doc", "documents/Памятка авторам.doc");
             addToZipStream(zos, "Реферат.docx", essay);
             addToZipStream(zos, "Обоснование_рекомендации.docx", supportingRecommendation);
             addToZipStream(zos, "Листинг.docx", listing);
@@ -74,5 +75,21 @@ public class DocumentsService {
         zos.putNextEntry(entry);
         zos.write(content);
         zos.closeEntry();
+    }
+
+    private void addToZipStreamFromResource(ZipOutputStream zos, String fileName, String resourcePath) throws IOException {
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath);
+        if (inputStream != null) {
+            ZipEntry entry = new ZipEntry(fileName);
+            zos.putNextEntry(entry);
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                zos.write(buffer, 0, bytesRead);
+            }
+            zos.closeEntry();
+        } else {
+            throw new FileNotFoundException("Resource not found: " + resourcePath);
+        }
     }
 }

@@ -124,7 +124,7 @@ public class SupportingRecommendationMapper {
                 break;
             case "Юридический факультет":
                 facultyName1 = "юридическом факультете";
-                facultyName2 = "юридическорго факультета";
+                facultyName2 = "юридического факультета";
                 dean = "Старилов Ю.Н.";
                 break;
             default:

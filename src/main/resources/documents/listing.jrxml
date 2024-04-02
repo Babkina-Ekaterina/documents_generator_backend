@@ -18,7 +18,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ\n ВЫСШЕГО ОБРАЗОВАНИЯ\n «ВОРОНЕЖСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ»"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ\nОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ\nВЫСШЕГО ОБРАЗОВАНИЯ\n«ВОРОНЕЖСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ»"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="280" width="469" height="140" uuid="e92adc2e-0bd4-4079-b917-d56db196430e"/>
@@ -28,7 +28,9 @@
 				<textFieldExpression><![CDATA[$P{type}+"\n\n"+$P{programName}+"\n __ листов"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="290" y="420" width="100" height="20" uuid="2e3d0a1e-0939-446d-813c-dece464cd7ca"/>
+				<reportElement x="275" y="420" width="100" height="20" uuid="2e3d0a1e-0939-446d-813c-dece464cd7ca">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
@@ -39,7 +41,10 @@
 	<detail>
 		<band height="15" splitType="Stretch">
 			<textField>
-				<reportElement x="340" y="0" width="100" height="15" uuid="6580dc8c-76e4-4ecf-b5c1-e872c19427da"/>
+				<reportElement x="325" y="0" width="144" height="15" uuid="6580dc8c-76e4-4ecf-b5c1-e872c19427da">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
@@ -50,7 +55,7 @@
 	<pageFooter>
 		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement x="10" y="0" width="469" height="20" uuid="86f0a930-0611-49a8-a438-c28fa214cd1a"/>
+				<reportElement x="0" y="1" width="469" height="20" uuid="86f0a930-0611-49a8-a438-c28fa214cd1a"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
