@@ -19,24 +19,4 @@
 		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
 		<exportFonts/>
 	</fontFamily>
-
-	<fontFamily name="Calibri">
-		<normal><![CDATA[fonts/Calibri/calibri.ttf]]></normal>
-		<bold><![CDATA[fonts/Calibri/calibrib.ttf]]></bold>
-		<italic><![CDATA[fonts/Calibri/calibrii.ttf]]></italic>
-		<boldItalic><![CDATA[fonts/Calibri/calibriz.ttf]]></boldItalic>
-		<pdfEncoding><![CDATA[Cp1251]]></pdfEncoding>
-		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
-		<exportFonts/>
-	</fontFamily>
-
-	<fontFamily name="Courier New">
-		<normal><![CDATA[fonts/CourierNew/cour.ttf]]></normal>
-		<bold><![CDATA[fonts/CourierNew/courbd.ttf]]></bold>
-		<italic><![CDATA[fonts/CourierNew/couri.ttf]]></italic>
-		<boldItalic><![CDATA[fonts/CourierNew/courbi.ttf]]></boldItalic>
-		<pdfEncoding><![CDATA[Cp1251]]></pdfEncoding>
-		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
-		<exportFonts/>
-	</fontFamily>
 </fontFamilies>
