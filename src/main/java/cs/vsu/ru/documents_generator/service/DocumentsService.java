@@ -4,7 +4,6 @@ import cs.vsu.ru.documents_generator.data.dto.UserDataDto;
 import cs.vsu.ru.documents_generator.data.entity.*;
 import cs.vsu.ru.documents_generator.data.mapper.*;
 import lombok.AllArgsConstructor;
-import net.sf.jasperreports.engine.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,7 +27,7 @@ public class DocumentsService {
     private ConsentForPersonalDataProcessingService consentForPersonalDataProcessingService;
     private ConsentForAuthorshipInformationService consentForAuthorshipInformationService;
 
-    public byte[] generateDocuments(UserDataDto userDataDto, MultipartFile[] programFiles) throws JRException, IOException {
+    public byte[] generateDocuments(UserDataDto userDataDto, MultipartFile[] programFiles) throws Exception {
         byte[] essay = essayService.generateEssay(essayMapper.dtoToEntity(userDataDto));
         byte[] supportingRecommendation = supportingRecommendationService.generateSupportingRecommendation(
                 supportingRecommendationMapper.dtoToEntity(userDataDto));
@@ -49,22 +48,32 @@ public class DocumentsService {
             byte[] consentFile = consentForAuthorshipInformationService.generateConsentForAuthorshipInformation(consentForAuthorship);
             consentForAuthorshipFiles[i] = consentFile;
         }
-        return createZipArchive(essay, supportingRecommendation, listing, consentFiles, consentForAuthorshipFiles, consents);
+        return createZipArchive(essay, supportingRecommendation, listing, consentFiles, consentForAuthorshipFiles, consents, userDataDto.getFormat());
     }
 
     private byte[] createZipArchive(byte[] essay, byte[] supportingRecommendation, byte[] listing,
-                                    byte[][] consentsFiles, byte[][] consentsForAuthorshipFiles, List<ConsentForPersonalDataProcessingEntity> consents)
+                                    byte[][] consentsFiles, byte[][] consentsForAuthorshipFiles,
+                                    List<ConsentForPersonalDataProcessingEntity> consents, String format)
             throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        String extension = "";
+        switch (format) {
+            case "DOCX (Microsoft Word)":
+                extension = ".docx";
+                break;
+            case "ODT (OpenOffice Writer)":
+                extension = ".odt";
+                break;
+        }
         try (ZipOutputStream zos = new ZipOutputStream(baos)) {
-            addToZipStreamFromResource(zos, "Памятка_авторам.doc", "documents/Памятка авторам.doc");
-            addToZipStream(zos, "Реферат.docx", essay);
-            addToZipStream(zos, "Обоснование_рекомендации.docx", supportingRecommendation);
+            addToZipStreamFromResource(zos, "Памятка_авторам" + extension, "documents/Памятка авторам" + extension);
+            addToZipStream(zos, "Реферат" + extension, essay);
+            addToZipStream(zos, "Обоснование_рекомендации" + extension, supportingRecommendation);
             addToZipStream(zos, "Листинг.docx", listing);
 
             for (int i = 0; i < consentsFiles.length; i++) {
-                addToZipStream(zos, "Согласие 1. " + consents.get(i).getName() + ".docx", consentsFiles[i]);
-                addToZipStream(zos, "Согласие 2. " + consents.get(i).getName() + ".docx", consentsForAuthorshipFiles[i]);
+                addToZipStream(zos, "Согласие 1. " + consents.get(i).getName() + extension, consentsFiles[i]);
+                addToZipStream(zos, "Согласие 2. " + consents.get(i).getName() + extension, consentsForAuthorshipFiles[i]);
             }
         }
         return baos.toByteArray();

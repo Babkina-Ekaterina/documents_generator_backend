@@ -2,6 +2,7 @@ package cs.vsu.ru.documents_generator.service;
 
 import cs.vsu.ru.documents_generator.data.entity.EssayEntity;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.export.oasis.JROdtExporter;
 import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
@@ -24,7 +25,15 @@ public class EssayService {
         parameters.put("programSize", essayEntity.getProgramSize());
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, new JREmptyDataSource());
 
-        JRDocxExporter exporter = new JRDocxExporter();
+        JRAbstractExporter exporter = null;
+        switch (essayEntity.getFormat()) {
+            case "DOCX (Microsoft Word)":
+                exporter = new JRDocxExporter();
+                break;
+            case "ODT (OpenOffice Writer)":
+                exporter = new JROdtExporter();
+                break;
+        }
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
         exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(outputStream));

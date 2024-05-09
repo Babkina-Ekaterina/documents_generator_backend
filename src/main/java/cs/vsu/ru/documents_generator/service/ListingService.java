@@ -21,7 +21,7 @@ import java.util.Map;
 
 @Service
 public class ListingService {
-    public byte[] generateListing(ListingEntity listingEntity) throws JRException, IOException {
+    public byte[] generateListing(ListingEntity listingEntity) throws Exception {
         JRBeanCollectionDataSource beanCollectionDataSource = new
                 JRBeanCollectionDataSource(listingEntity.getAuthors(), false);
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream("documents/listing.jrxml");
@@ -32,8 +32,8 @@ public class ListingService {
         parameters.put("year", listingEntity.getYear());
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, beanCollectionDataSource);
 
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         JRDocxExporter exporter = new JRDocxExporter();
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
         exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(outputStream));
         exporter.exportReport();
