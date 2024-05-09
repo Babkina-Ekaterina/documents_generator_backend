@@ -12,4 +12,5 @@ public class EssayEntity {
     private String annotation;
     private String language;
     private String programSize;
+    private String format;
 }

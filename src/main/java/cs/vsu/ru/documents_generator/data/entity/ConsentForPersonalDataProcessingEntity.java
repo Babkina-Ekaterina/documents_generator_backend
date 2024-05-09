@@ -15,4 +15,5 @@ public class ConsentForPersonalDataProcessingEntity {
     private String number;
     private String dateOfIssue;
     private String issuedBy;
+    private String format;
 }

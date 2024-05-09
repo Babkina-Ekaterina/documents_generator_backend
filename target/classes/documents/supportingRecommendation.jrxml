@@ -10,6 +10,7 @@
 	<property name="com.jaspersoft.studio.unit.rightMargin" value="mm"/>
 	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="faculty" class="java.lang.String"/>
 	<parameter name="dean" class="java.lang.String"/>
 	<parameter name="supportingText" class="java.lang.String"/>
@@ -77,18 +78,18 @@
 			<frame>
 				<reportElement x="0" y="0" width="468" height="30" uuid="a708b26e-6438-4fe5-83fc-bad66162e08c"/>
 				<textField>
-					<reportElement x="-1" y="0" width="231" height="30" uuid="97afa9f4-d50f-4e7f-8814-563a850f4285"/>
+					<reportElement x="-1" y="0" width="151" height="30" uuid="97afa9f4-d50f-4e7f-8814-563a850f4285"/>
 					<textElement>
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+					<textFieldExpression><![CDATA["__________________"]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="250" y="0" width="208" height="30" uuid="43e3b05c-1e71-498b-bd9d-c5302a4b5fba"/>
+					<reportElement x="150" y="0" width="308" height="30" uuid="43e3b05c-1e71-498b-bd9d-c5302a4b5fba"/>
 					<textElement textAlignment="Right">
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA["ФИО\nдд. мм.гг"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{name} + "\n__.__.20__г."]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
@@ -97,18 +98,25 @@
 		<band height="110">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField>
-				<reportElement x="0" y="0" width="230" height="110" uuid="09f2bd45-9027-4be2-933a-4e600913a0bd"/>
+				<reportElement x="0" y="60" width="150" height="50" uuid="09f2bd45-9027-4be2-933a-4e600913a0bd"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["\n\n\nИ.о. декана:\n\n_____________________"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["_____________________"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="230" y="40" width="238" height="70" uuid="921a3bb0-fa3a-4cee-a7e2-e8c7009c2814"/>
+				<reportElement x="150" y="60" width="308" height="50" uuid="921a3bb0-fa3a-4cee-a7e2-e8c7009c2814"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{dean}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{dean}+ "\n__.__.20__г."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="468" height="60" uuid="2f268a18-a791-4b68-af1f-16b8929b9dba"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["\n\nРуководитель структурного подразделения:"]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>

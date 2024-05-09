@@ -32,7 +32,7 @@
 					<font fontName="Times New Roman" size="13"/>
 					<paragraph lineSpacing="1_1_2"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Программа: «"+$P{programName} + "»\n" + "Аннотация: "+$P{annotation} + "\n\n" + "\tЯзык: \t\t\t\t" + $P{language} +"\n" + "\tОбъем программы: \t\t" + $P{programSize}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Программа: " + $P{programName} + "\nАннотация: "+$P{annotation} + "\n\n" + "\tЯзык: \t\t\t\t" + $P{language} +"\n" + "\tОбъем программы: \t\t" + $P{programSize}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

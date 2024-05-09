@@ -15,4 +15,5 @@ public class SupportingRecommendationEntity {
     private String supportingText;
     private List<Author> authors;
     private String dean;
+    private String format;
 }

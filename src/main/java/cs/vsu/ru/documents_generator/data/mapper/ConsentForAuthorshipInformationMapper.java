@@ -26,7 +26,7 @@ public class ConsentForAuthorshipInformationMapper {
                     userDataDto.getAddresses().get(documentIndex), userDataDto.getDescriptions().get(documentIndex),
                     userDataDto.getNameCheckboxes().get(documentIndex),
                     userDataDto.getAnonymousCheckboxes().get(documentIndex),
-                    userDataDto.getPseudoNameCheckboxes().get(documentIndex), year));
+                    userDataDto.getPseudoNameCheckboxes().get(documentIndex), year, userDataDto.getFormat()));
         }
         return result;
     }

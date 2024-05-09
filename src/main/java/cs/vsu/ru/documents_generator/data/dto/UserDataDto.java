@@ -37,4 +37,5 @@ public class UserDataDto {
     private String faculty;
     private String fullAuthors;
     private String reason;
+    private String format;
 }

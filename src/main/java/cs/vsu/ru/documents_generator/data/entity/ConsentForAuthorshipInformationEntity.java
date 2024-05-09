@@ -23,4 +23,5 @@ public class ConsentForAuthorshipInformationEntity {
     private boolean anonymousCheckbox;
     private boolean pseudoNameCheckbox;
     private int year;
+    private String format;
 }

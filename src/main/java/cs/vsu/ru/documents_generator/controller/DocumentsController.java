@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import cs.vsu.ru.documents_generator.data.dto.UserDataDto;
 import cs.vsu.ru.documents_generator.service.DocumentsService;
 import lombok.AllArgsConstructor;
-import net.sf.jasperreports.engine.JRException;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ContentDisposition;
@@ -13,8 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/documents")
@@ -25,7 +22,7 @@ public class DocumentsController {
 
     @PostMapping("/generate")
     public ResponseEntity<Resource> generateDocuments(@RequestParam("userDataDto") String userDataDtoJson,
-                                                      @RequestParam("programFiles") MultipartFile[] programFiles) throws JRException, IOException {
+                                                      @RequestParam("programFiles") MultipartFile[] programFiles) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
         UserDataDto userDataDto = objectMapper.readValue(userDataDtoJson, UserDataDto.class);
         byte[] reportContent = documentsService.generateDocuments(userDataDto, programFiles);

@@ -41,6 +41,6 @@ public class ListingMapper {
 
         int year = Calendar.getInstance().get(Calendar.YEAR);
 
-        return new ListingEntity(type, userDataDto.getProgramName(), authors, year, programFiles);
+        return new ListingEntity(type, userDataDto.getProgramName(), authors, year, programFiles, userDataDto.getFormat());
     }
 }

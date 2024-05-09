@@ -17,4 +17,5 @@ public class ListingEntity {
     private List<Author> authors;
     private int year;
     private MultipartFile[] programFiles;
+    private String format;
 }

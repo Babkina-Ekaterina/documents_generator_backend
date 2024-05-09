@@ -14,28 +14,25 @@ import java.util.List;
 public class SupportingRecommendationMapper {
     public SupportingRecommendationEntity dtoToEntity(UserDataDto userDataDto) {
         StringBuilder supportingText = new StringBuilder();
-        supportingText.append("\tРезультат интеллектуальной деятельности ");
+        supportingText.append("Результат интеллектуальной деятельности ");
         String programType1 = "";
         String programType2 = "";
-        String programType3 = "";
         if (userDataDto.isComputerProgramCheckbox()) {
-            programType1 = "Программа для ЭВМ";
-            programType2 = "программы для ЭВМ";
-            programType3 = "программ для ЭВМ";
+            programType1 = "программа для ЭВМ";
+            programType2 = "программ для ЭВМ";
         } else if (userDataDto.isDatabaseCheckbox1()) {
-            programType1 = "База данных";
-            programType2 = "базы данных";
-            programType3 = "баз данных (пункт 4 статьи 1259 Кодекса)";
+            programType1 = "база данных";
+            programType2 = "баз данных (пункт 4 статьи 1259 Кодекса)";
         } else if (userDataDto.isDatabaseCheckbox2()) {
-            programType1 = "База данных";
-            programType2 = "базы данных";
-            programType3 = "баз данных (пункт 3 статьи 1334 Кодекса)";
+            programType1 = "база данных";
+            programType2 = "баз данных (пункт 3 статьи 1334 Кодекса)";
         }
         supportingText.append(programType1);
         supportingText.append(" «");
         supportingText.append(userDataDto.getProgramName());
-        supportingText.append("» разработан на ");
-
+        supportingText.append("» (авторов: ");
+        supportingText.append(userDataDto.getFullAuthors());
+        supportingText.append("), создан ");
 
         String faculty = userDataDto.getFaculty();
         String facultyName1 = "";
@@ -43,123 +40,108 @@ public class SupportingRecommendationMapper {
         String dean = "";
         switch (faculty) {
             case "Факультет компьютерных наук":
-                facultyName1 = "факультете компьютерных наук";
+                facultyName1 = "факультетом компьютерных наук";
                 facultyName2 = "факультета компьютерных наук";
-                dean = "Крыловецкий А.А.";
+                dean = "Крыловецкий Александр Абрамович";
                 break;
             case "Медико-биологический факультет":
-                facultyName1 = "медико-биологическом факультете";
+                facultyName1 = "медико-биологическим факультетом";
                 facultyName2 = "медико-биологического факультета";
-                dean = "Попова Т.Н.";
+                dean = "Попова Татьяна Николаевна";
                 break;
             case "Факультет географии, геоэкологии и туризма":
-                facultyName1 = "факультете географии, геоэкологии и туризма";
+                facultyName1 = "факультетом географии, геоэкологии и туризма";
                 facultyName2 = "факультета географии, геоэкологии и туризма";
-                dean = "Куролап С.А.";
+                dean = "Куролап Семен Александрович";
                 break;
             case "Геологический факультет":
-                facultyName1 = "геологическом факультете";
+                facultyName1 = "геологическим факультетом";
                 facultyName2 = "геологического факультета";
-                dean = "Ненахов В.М.";
+                dean = "Ненахов Виктор Миронович";
                 break;
             case "Факультет журналистики":
-                facultyName1 = "факультете журналистики";
+                facultyName1 = "факультетом журналистики";
                 facultyName2 = "факультета журналистики";
-                dean = "Тулупов В.В.";
+                dean = "Тулупов Владимир Васильевич";
                 break;
             case "Исторический факультет":
-                facultyName1 = "историческом факультете";
+                facultyName1 = "историческим факультетом";
                 facultyName2 = "исторического факультета";
-                dean = "Глазьев В.Н.";
+                dean = "Глазьев Владимир Николаевич";
                 break;
             case "Математический факультет":
-                facultyName1 = "математическом факультете";
+                facultyName1 = "математическим факультетом";
                 facultyName2 = "математического факультета";
-                dean = "Бурлуцкая М.Ш.";
+                dean = "Бурлуцкая Мария Шаукатовна";
                 break;
             case "Факультет международных отношений":
-                facultyName1 = "факультете международных отношений";
+                facultyName1 = "факультетом международных отношений";
                 facultyName2 = "факультета международных отношений";
-                dean = "Беленов О.Н.";
+                dean = "Беленов Олег Николаевич";
                 break;
             case "Факультет прикладной математики, информатики и механики":
-                facultyName1 = "факультете прикладной математики, информатики и механики";
+                facultyName1 = "факультетом прикладной математики, информатики и механики";
                 facultyName2 = "факультета прикладной математики, информатики и механики";
-                dean = "Медведев С.Н.";
+                dean = "Медведев Сергей Николаевич";
                 break;
             case "Факультет романо-германской филологии":
-                facultyName1 = "факультете романо-германской филологии";
+                facultyName1 = "факультетом романо-германской филологии";
                 facultyName2 = "факультета романо-германской филологии";
-                dean = "Борискина О.О.";
+                dean = "Борискина Ольга Олеговна";
                 break;
             case "Химический факультет":
-                facultyName1 = "химическом факультете";
+                facultyName1 = "химическим факультетом";
                 facultyName2 = "химического факультета";
-                dean = "Семенов В.Н.";
+                dean = "Семенов Виктор Николаевич";
                 break;
             case "Фармацевтический факультет":
-                facultyName1 = "фармацевтическом факультете";
+                facultyName1 = "фармацевтическим факультетом";
                 facultyName2 = "фармацевтического факультета";
-                dean = "Чупандина Е.Е.";
+                dean = "Чупандина Елена Евгеньевна";
                 break;
             case "Физический факультет":
-                facultyName1 = "физическом факультете";
+                facultyName1 = "физическим факультетом";
                 facultyName2 = "физического факультета";
-                dean = "Овчинников О.В.";
+                dean = "Овчинников Олег Владимирович";
                 break;
             case "Филологический факультет":
-                facultyName1 = "филологическом факультете";
+                facultyName1 = "филологическим факультетом";
                 facultyName2 = "филологического факультета";
-                dean = "Грачева Ж.В.";
+                dean = "Грачева Жанна Владимировна";
                 break;
             case "Факультет философии и психологии":
-                facultyName1 = "факультете философии и психологии";
+                facultyName1 = "факультетом философии и психологии";
                 facultyName2 = "факультета философии и психологии";
-                dean = "Бубнов Ю.А.";
+                dean = "Бубнов Юрий Александрович";
                 break;
             case "Экономический факультет":
-                facultyName1 = "экономическом факультете";
+                facultyName1 = "экономическим факультетом";
                 facultyName2 = "экономического факультета";
-                dean = "Канапухин П.А.";
+                dean = "Канапухин Павел Анатольевич";
                 break;
             case "Юридический факультет":
-                facultyName1 = "юридическом факультете";
+                facultyName1 = "юридическим факультетом";
                 facultyName2 = "юридического факультета";
-                dean = "Старилов Ю.Н.";
+                dean = "Старилов Юрий Николаевич";
                 break;
             default:
                 break;
         }
 
         supportingText.append(facultyName1);
-        supportingText.append(" ");
-        supportingText.append(userDataDto.getFullAuthors());
-        supportingText.append(".\n\tСвидетельство о государственной регистрации ");
-        supportingText.append(programType2);
-        supportingText.append(" требуется для ");
+        supportingText.append(". ");
         supportingText.append(userDataDto.getReason());
-        supportingText.append(". \n\tПросим произвести государственную регистрацию в реестре ");
-        supportingText.append(programType3);
+        supportingText.append(" Просим произвести государственную регистрацию в реестре ");
+        supportingText.append(programType2);
         supportingText.append(". Оплату государственной пошлины произвести за счет средств ");
         supportingText.append(facultyName2);
         supportingText.append(".");
 
         List<Author> authors = new ArrayList<>();
         for (String name : userDataDto.getNames()) {
-            String[] parts = name.split(" ");
-            StringBuilder sb = new StringBuilder();
-            sb.append(parts[0]);
-            sb.append(" ");
-            for (int partIndex = 1; partIndex < parts.length; partIndex++) {
-                String part = parts[partIndex];
-                if (!part.isEmpty()) {
-                    sb.append(part.charAt(0)).append(".");
-                }
-            }
-            authors.add(new Author(sb.toString()));
+            authors.add(new Author(name));
         }
 
-
-        return new SupportingRecommendationEntity(faculty, supportingText.toString(), authors, dean);
+        return new SupportingRecommendationEntity(faculty, supportingText.toString(), authors, dean, userDataDto.getFormat());
     }
 }
