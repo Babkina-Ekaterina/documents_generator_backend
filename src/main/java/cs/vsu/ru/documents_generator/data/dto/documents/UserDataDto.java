@@ -1,4 +1,4 @@
-package cs.vsu.ru.documents_generator.data.dto;
+package cs.vsu.ru.documents_generator.data.dto.documents;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

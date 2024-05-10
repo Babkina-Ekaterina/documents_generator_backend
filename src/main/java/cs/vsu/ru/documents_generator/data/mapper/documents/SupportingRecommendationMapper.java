@@ -1,16 +1,14 @@
-package cs.vsu.ru.documents_generator.data.mapper;
+package cs.vsu.ru.documents_generator.data.mapper.documents;
 
-import cs.vsu.ru.documents_generator.data.dto.UserDataDto;
-import cs.vsu.ru.documents_generator.data.entity.SupportingRecommendationEntity;
+import cs.vsu.ru.documents_generator.data.dto.documents.UserDataDto;
+import cs.vsu.ru.documents_generator.data.entity.documents.SupportingRecommendationEntity;
 import cs.vsu.ru.documents_generator.data.utilModel.Author;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@AllArgsConstructor
 public class SupportingRecommendationMapper {
     public SupportingRecommendationEntity dtoToEntity(UserDataDto userDataDto) {
         StringBuilder supportingText = new StringBuilder();

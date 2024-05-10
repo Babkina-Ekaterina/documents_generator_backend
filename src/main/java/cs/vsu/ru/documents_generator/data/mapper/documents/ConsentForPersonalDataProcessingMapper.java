@@ -1,15 +1,13 @@
-package cs.vsu.ru.documents_generator.data.mapper;
+package cs.vsu.ru.documents_generator.data.mapper.documents;
 
-import cs.vsu.ru.documents_generator.data.dto.UserDataDto;
-import cs.vsu.ru.documents_generator.data.entity.ConsentForPersonalDataProcessingEntity;
-import lombok.AllArgsConstructor;
+import cs.vsu.ru.documents_generator.data.dto.documents.UserDataDto;
+import cs.vsu.ru.documents_generator.data.entity.documents.ConsentForPersonalDataProcessingEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@AllArgsConstructor
 public class ConsentForPersonalDataProcessingMapper {
     public List<ConsentForPersonalDataProcessingEntity> dtoToEntity(UserDataDto userDataDto) {
         List<ConsentForPersonalDataProcessingEntity> result = new ArrayList<>();

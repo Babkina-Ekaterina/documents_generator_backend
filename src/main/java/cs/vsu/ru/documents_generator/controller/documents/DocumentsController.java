@@ -1,8 +1,8 @@
-package cs.vsu.ru.documents_generator.controller;
+package cs.vsu.ru.documents_generator.controller.documents;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import cs.vsu.ru.documents_generator.data.dto.UserDataDto;
-import cs.vsu.ru.documents_generator.service.DocumentsService;
+import cs.vsu.ru.documents_generator.data.dto.documents.UserDataDto;
+import cs.vsu.ru.documents_generator.service.documents.DocumentsService;
 import lombok.AllArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping("/api/documents")
+@RequestMapping("/documents")
 @AllArgsConstructor
 @CrossOrigin(origins = {"https://documents-generator-frontend.onrender.com"}, allowCredentials = "true")
 public class DocumentsController {

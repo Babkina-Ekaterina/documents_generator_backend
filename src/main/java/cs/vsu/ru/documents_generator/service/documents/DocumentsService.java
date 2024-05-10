@@ -1,8 +1,9 @@
-package cs.vsu.ru.documents_generator.service;
+package cs.vsu.ru.documents_generator.service.documents;
 
-import cs.vsu.ru.documents_generator.data.dto.UserDataDto;
-import cs.vsu.ru.documents_generator.data.entity.*;
-import cs.vsu.ru.documents_generator.data.mapper.*;
+import cs.vsu.ru.documents_generator.data.dto.documents.UserDataDto;
+import cs.vsu.ru.documents_generator.data.entity.documents.ConsentForAuthorshipInformationEntity;
+import cs.vsu.ru.documents_generator.data.entity.documents.ConsentForPersonalDataProcessingEntity;
+import cs.vsu.ru.documents_generator.data.mapper.documents.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,7 +12,6 @@ import java.io.*;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-
 
 @Service
 @AllArgsConstructor

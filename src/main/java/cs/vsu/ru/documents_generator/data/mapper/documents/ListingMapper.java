@@ -1,9 +1,8 @@
-package cs.vsu.ru.documents_generator.data.mapper;
+package cs.vsu.ru.documents_generator.data.mapper.documents;
 
-import cs.vsu.ru.documents_generator.data.dto.UserDataDto;
+import cs.vsu.ru.documents_generator.data.dto.documents.UserDataDto;
 import cs.vsu.ru.documents_generator.data.utilModel.Author;
-import cs.vsu.ru.documents_generator.data.entity.ListingEntity;
-import lombok.AllArgsConstructor;
+import cs.vsu.ru.documents_generator.data.entity.documents.ListingEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,7 +11,6 @@ import java.util.Calendar;
 import java.util.List;
 
 @Component
-@AllArgsConstructor
 public class ListingMapper {
     public ListingEntity dtoToEntity(UserDataDto userDataDto, MultipartFile[] programFiles) {
         String type = "";
@@ -27,16 +25,20 @@ public class ListingMapper {
         List<Author> authors = new ArrayList<>();
         for (String name: userDataDto.getNames()) {
             String[] parts = name.split(" ");
-            StringBuilder sb = new StringBuilder();
-            for (int partIndex = 1; partIndex < parts.length; partIndex++) {
-                String part = parts[partIndex];
-                if (!part.isEmpty()) {
-                    sb.append(part.charAt(0)).append(".");
+            if (parts.length != 3) {
+                authors.add(new Author(name));
+            } else {
+                StringBuilder sb = new StringBuilder();
+                for (int partIndex = 1; partIndex < parts.length; partIndex++) {
+                    String part = parts[partIndex];
+                    if (!part.isEmpty()) {
+                        sb.append(part.charAt(0)).append(".");
+                    }
                 }
+                sb.append(" ");
+                sb.append(parts[0]);
+                authors.add(new Author(sb.toString()));
             }
-            sb.append(" ");
-            sb.append(parts[0]);
-            authors.add(new Author(sb.toString()));
         }
 
         int year = Calendar.getInstance().get(Calendar.YEAR);

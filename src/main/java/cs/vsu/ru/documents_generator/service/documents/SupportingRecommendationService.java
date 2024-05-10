@@ -1,6 +1,6 @@
-package cs.vsu.ru.documents_generator.service;
+package cs.vsu.ru.documents_generator.service.documents;
 
-import cs.vsu.ru.documents_generator.data.entity.SupportingRecommendationEntity;
+import cs.vsu.ru.documents_generator.data.entity.documents.SupportingRecommendationEntity;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.oasis.JROdtExporter;

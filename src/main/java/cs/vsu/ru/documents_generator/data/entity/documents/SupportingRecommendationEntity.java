@@ -1,21 +1,19 @@
-package cs.vsu.ru.documents_generator.data.entity;
+package cs.vsu.ru.documents_generator.data.entity.documents;
 
 import cs.vsu.ru.documents_generator.data.utilModel.Author;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 @AllArgsConstructor
 @Getter
 @Setter
-public class ListingEntity {
-    private String type;
-    private String programName;
+public class SupportingRecommendationEntity {
+    private String faculty;
+    private String supportingText;
     private List<Author> authors;
-    private int year;
-    private MultipartFile[] programFiles;
+    private String dean;
     private String format;
 }
