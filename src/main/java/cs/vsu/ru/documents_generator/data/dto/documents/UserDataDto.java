@@ -23,6 +23,7 @@ public class UserDataDto {
     private List<String> numbers;
     private List<String> datesOfIssue;
     private List<String> issuedBys;
+    private List<String> departmentCodes;
 
     private boolean computerProgramCheckbox;
     private boolean databaseCheckbox1;

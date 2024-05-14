@@ -18,4 +18,5 @@ public class GetAuthorDto {
     private String number;
     private String dateOfIssue;
     private String issuedBy;
+    private String departmentCode;
 }

@@ -17,7 +17,7 @@ public class ConsentForPersonalDataProcessingMapper {
                     userDataDto.getNames().get(documentIndex), userDataDto.getAddresses().get(documentIndex),
                     userDataDto.getSeries().get(documentIndex), userDataDto.getNumbers().get(documentIndex),
                     userDataDto.getDatesOfIssue().get(documentIndex), userDataDto.getIssuedBys().get(documentIndex),
-                    userDataDto.getFormat()));
+                    userDataDto.getDepartmentCodes().get(documentIndex), userDataDto.getFormat()));
         }
         return result;
     }

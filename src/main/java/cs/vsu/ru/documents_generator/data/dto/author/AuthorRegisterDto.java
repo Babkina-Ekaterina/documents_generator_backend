@@ -20,4 +20,5 @@ public class AuthorRegisterDto {
     private String number;
     private String dateOfIssue;
     private String issuedBy;
+    private String departmentCode;
 }

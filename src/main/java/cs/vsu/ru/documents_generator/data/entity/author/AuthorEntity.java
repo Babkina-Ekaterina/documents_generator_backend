@@ -36,4 +36,6 @@ public class AuthorEntity {
     private String dateOfIssue;
     @Column(name = "issued_by")
     private String issuedBy;
+    @Column(name = "department_code")
+    private String departmentCode;
 }

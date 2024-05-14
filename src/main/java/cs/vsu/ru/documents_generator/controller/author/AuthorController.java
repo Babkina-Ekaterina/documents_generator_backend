@@ -36,7 +36,7 @@ public class AuthorController {
     }
 
     @GetMapping("/get_author")
-    public ResponseEntity<GetAuthorDto> getAuthor(@RequestParam Integer authorId) {
+    public ResponseEntity<GetAuthorDto> getAuthorById(@RequestParam Integer authorId) {
         return new ResponseEntity<>(authorService.getAuthorById(authorId), HttpStatus.OK);
     }
 

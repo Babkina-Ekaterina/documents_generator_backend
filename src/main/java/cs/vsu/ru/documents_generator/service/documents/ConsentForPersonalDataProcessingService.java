@@ -27,6 +27,7 @@ public class ConsentForPersonalDataProcessingService {
         parameters.put("number", consentForPersonalDataProcessingEntity.getNumber());
         parameters.put("dateOfIssue", consentForPersonalDataProcessingEntity.getDateOfIssue());
         parameters.put("issuedBy", consentForPersonalDataProcessingEntity.getIssuedBy());
+        parameters.put("departmentCode", consentForPersonalDataProcessingEntity.getDepartmentCode());
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, new JREmptyDataSource());
 
         JRAbstractExporter exporter = null;

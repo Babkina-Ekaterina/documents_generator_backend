@@ -11,7 +11,6 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
-import java.security.SecureRandom;
 import java.util.Base64;
 
 @Component
@@ -38,6 +37,7 @@ public class AuthorMapper {
         authorEntity.setNumber(encrypt(authorRegisterDto.getNumber()));
         authorEntity.setDateOfIssue(encrypt(authorRegisterDto.getDateOfIssue()));
         authorEntity.setIssuedBy(encrypt(authorRegisterDto.getIssuedBy()));
+        authorEntity.setDepartmentCode(encrypt(authorRegisterDto.getDepartmentCode()));
 
         return authorEntity;
     }
@@ -51,7 +51,8 @@ public class AuthorMapper {
                 decrypt(authorEntity.getSeries()),
                 decrypt(authorEntity.getNumber()),
                 decrypt(authorEntity.getDateOfIssue()),
-                decrypt(authorEntity.getIssuedBy()));
+                decrypt(authorEntity.getIssuedBy()),
+                decrypt(authorEntity.getDepartmentCode()));
 
         return getAuthorDto;
     }
@@ -65,6 +66,7 @@ public class AuthorMapper {
         authorEntity.setNumber(encrypt(authorEditDto.getNumber()));
         authorEntity.setDateOfIssue(encrypt(authorEditDto.getDateOfIssue()));
         authorEntity.setIssuedBy(encrypt(authorEditDto.getIssuedBy()));
+        authorEntity.setDepartmentCode(encrypt(authorEditDto.getDepartmentCode()));
         return authorEntity;
     }
 
@@ -95,12 +97,5 @@ public class AuthorMapper {
             e.printStackTrace();
         }
         return null;
-    }
-
-    private static byte[] generateKey() {
-        SecureRandom secureRandom = new SecureRandom();
-        byte[] key = new byte[16];
-        secureRandom.nextBytes(key);
-        return key;
     }
 }
