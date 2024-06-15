@@ -24,7 +24,7 @@ public class AuthorEntity {
     private String name;
     @Column(name = "date_of_birth")
     private String dateOfBirth;
-    @Column(name = "address")
+    @Column(name = "address", length = 400)
     private String address;
     @Column(name = "citizenship")
     private String citizenship;
